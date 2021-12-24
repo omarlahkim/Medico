@@ -1,0 +1,30 @@
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+	li {
+		border-bottom: 1px solid #eaedf1;
+	}
+}
+.list-inline {
+	padding-left: 0;
+	list-style: none;
+}
+.list-inline-item {
+	display: inline-block;
+	&:not(:last-child) {
+		margin-right: 0.5rem;
+	}
+}
+.icon-size {
+	font-size: 2rem !important;
+}
+.icon-icon-shape {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	text-align: center;
+	i {
+		font-size: 24px;
+		line-height: 2;
+	}
+}

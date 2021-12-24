@@ -1,0 +1,148 @@
+/*alerts*/
+
+.popsecondary {
+	color: #628dea;
+}
+.popinfo {
+	color: #88c8f7;
+}
+.popsuccess {
+	color: #bfff80;
+}
+.popdanger {
+	color: #ea6262;
+}
+.popwarning {
+	color: #f7db6e;
+}
+/*-----Alerts-----*/
+
+.alert {
+	position: relative;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	font-size: 0.9375rem;
+	&:last-child, p {
+		margin-bottom: 0;
+	}
+}
+.alert-heading {
+	color: inherit;
+}
+.alert-link {
+	font-weight: 500;
+	&:hover, a:hover {
+		text-decoration: underline;
+	}
+}
+.alert-dismissible {
+	padding-left: 3.90625rem;
+	.close {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: auto;
+		padding: 0.75rem 1.25rem;
+		color: inherit;
+	}
+}
+.alert-secondary {
+	color: $secondary;
+	background-color: #fbdce5;
+	border-color: #fbdce5;
+	hr {
+		border-top-color: $secondary;
+	}
+	.alert-link {
+		color: $secondary;
+	}
+}
+.alert-success {
+	color: #316100;
+	background-color: #dff1cc;
+	border-color: #d2ecb8;
+	hr {
+		border-top-color: #c5e7a4;
+	}
+	.alert-link {
+		color: #172e00;
+	}
+}
+.alert-info {
+	color: #24587e;
+	background-color: #daeefc;
+	border-color: #cbe7fb;
+	hr {
+		border-top-color: #b3dcf9;
+	}
+	.alert-link {
+		color: #193c56;
+	}
+}
+.alert-warning {
+	color: #7d6608;
+	background-color: #fcf3cf;
+	border-color: #fbeebc;
+	hr {
+		border-top-color: #fae8a4;
+	}
+	.alert-link {
+		color: #4d3f05;
+	}
+}
+.alert-danger {
+	color: #6b1110;
+	background-color: #f5d2d2;
+	border-color: #f1c1c0;
+	hr {
+		border-top-color: #ecacab;
+	}
+	.alert-link {
+		color: #3f0a09;
+	}
+}
+.alert-light {
+	color: #818182;
+	background-color: #fefefe;
+	border-color: #fdfdfe;
+	hr {
+		border-top-color: #ececf6;
+	}
+	.alert-link {
+		color: #686868;
+	}
+}
+.alert-dark {
+	color: #1b1e21;
+	background-color: #d6d8d9;
+	border-color: #c6c8ca;
+	hr {
+		border-top-color: #b9bbbe;
+	}
+	.alert-link {
+		color: #040505;
+	}
+}
+.alert-icon {
+	padding-left: 3rem;
+	>i {
+		color: inherit !important;
+		font-size: 1rem;
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+	}
+}
+.alert-avatar {
+	padding-right: 3.75rem;
+	.avatar {
+		position: absolute;
+		top: .5rem;
+		right: .75rem;
+	}
+}
+.alert-inner--icon {
+	float: right;
+	margin-left: 4px;
+}

@@ -1,0 +1,179 @@
+/*-------Tooptip &popover------*/
+
+.bd-example {
+	position: relative;
+	padding: 1rem;
+	margin: 1rem -1rem;
+	border-width: .2rem 0 0;
+}
+.bd-example-tooltip-static .tooltip {
+	position: relative;
+	display: inline-block;
+	margin: 10px 20px;
+	opacity: 1;
+}
+.tooltip {
+	&.bs-tether-element-attached-bottom, &.bs-tooltip-top {
+		padding: 5px 0;
+		margin-top: -3px;
+	}
+	position: absolute;
+	z-index: 1074;
+	display: block;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-break: auto;
+	line-height: 1.5;
+	text-align: left;
+	text-align: start;
+	text-decoration: none;
+	text-shadow: none;
+	text-transform: none;
+	white-space: normal;
+	word-break: normal;
+	word-spacing: normal;
+	font-size: .875rem;
+	word-wrap: break-word;
+	opacity: 0;
+}
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: $white;
+	text-align: center;
+	background-color: $black;
+	border-radius: .25rem;
+}
+.tooltip {
+	&.bs-tether-element-attached-left, &.bs-tooltip-end {
+		padding: 0 5px;
+		margin-left: 3px;
+	}
+	&.bs-tether-element-attached-bottom .tooltip-inner::before, &.bs-tooltip-top .tooltip-inner::before {
+		bottom: 0;
+		left: 50%;
+		margin-left: -5px;
+		content: "";
+		border-width: 5px 5px 0;
+		border-top-color: $black;
+	}
+	&.bs-tether-element-attached-left .tooltip-inner::before, &.bs-tooltip-end .tooltip-inner::before {
+		top: 50%;
+		left: 0;
+		margin-top: -5px;
+		content: "";
+		border-width: 5px 5px 5px 0;
+	   	border-right-color: $black;
+	}
+	&.bs-tether-element-attached-top, &.bs-tooltip-bottom {
+		padding: 5px 0;
+		margin-top: 3px;
+	}
+	&.bs-tether-element-attached-top .tooltip-inner::before, &.bs-tooltip-bottom .tooltip-inner::before {
+		top: 0;
+		left: 50%;
+		margin-left: -5px;
+		content: "";
+		border-width: 0 5px 5px;
+		border-bottom-color: $black;
+	}
+	&.bs-tether-element-attached-right, &.bs-tooltip-start {
+		padding: 0 5px;
+		margin-left: -3px;
+	}
+	&.bs-tether-element-attached-right .tooltip-inner::before, &.bs-tooltip-start .tooltip-inner::before {
+		top: 50%;
+		right: 0;
+		margin-top: -5px;
+		content: "";
+		border-width: 5px 0 5px 5px;
+	   border-left-color: $black;
+	}
+}
+.tooltip-inner::before {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+.tooltip {
+	&.show {
+		opacity: 0.9;
+	}
+	.arrow {
+		position: absolute;
+		display: block;
+		width: 0.8rem;
+		height: 0.4rem;
+		&::before {
+			position: absolute;
+			content: "";
+			border-color: transparent;
+			border-style: solid;
+		}
+	}
+}
+.bs-tooltip-top, .bs-tooltip-auto[data-popper-placement^="top"] {
+	padding: 0.4rem 0;
+}
+.bs-tooltip-top .arrow, .bs-tooltip-auto[data-popper-placement^="top"] .arrow {
+	bottom: 0;
+}
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[data-popper-placement^="top"] .arrow::before {
+	top: 0;
+	border-width: 0.4rem 0.4rem 0;
+	border-top-color: $black;
+}
+.bs-tooltip-end, .bs-tooltip-auto[data-popper-placement^="right"] {
+	padding: 0 0.4rem;
+}
+.bs-tooltip-end .arrow, .bs-tooltip-auto[data-popper-placement^="right"] .arrow {
+	left: 0;
+	width: 0.4rem;
+	height: 0.8rem;
+}
+.bs-tooltip-end .arrow::before, .bs-tooltip-auto[data-popper-placement^="right"] .arrow::before {
+	right: 0;
+	border-width: 0.4rem 0.4rem 0.4rem 0;
+   border-right-color: $black;
+}
+.bs-tooltip-bottom, .bs-tooltip-auto[data-popper-placement^="bottom"] {
+	padding: 0.4rem 0;
+}
+.bs-tooltip-bottom .arrow, .bs-tooltip-auto[data-popper-placement^="bottom"] .arrow {
+	top: 0;
+}
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[data-popper-placement^="bottom"] .arrow::before {
+	bottom: 0;
+	border-width: 0 0.4rem 0.4rem;
+	border-bottom-color: $black;
+}
+.bs-tooltip-start, .bs-tooltip-auto[data-popper-placement^="left"] {
+	padding: 0 0.4rem;
+}
+.bs-tooltip-start .arrow, .bs-tooltip-auto[data-popper-placement^="left"] .arrow {
+	right: 0;
+	width: 0.4rem;
+	height: 0.8rem;
+}
+.bs-tooltip-start .arrow::before, .bs-tooltip-auto[data-popper-placement^="left"] .arrow::before {
+	left: 0;
+	border-width: 0.4rem 0 0.4rem 0.4rem;
+   border-left-color: $black;
+}
+.jqstooltip {
+	box-sizing: content-box;
+	font-family: inherit !important;
+	background: #333 !important;
+	border: none !important;
+	border-radius: 3px;
+	font-size: 11px !important;
+	font-weight: 700 !important;
+	line-height: 1 !important;
+	padding: 6px !important;
+	.jqsfield {
+		font: inherit !important;
+	}
+}

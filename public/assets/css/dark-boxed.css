@@ -1,0 +1,67 @@
+/*Color variables*/
+/*Gradient variables*/
+/*white variables*/
+/*black variables*/
+/*shadow variables*/
+@media (min-width: 1025px) {
+    .page {
+        max-width: 1170px;
+        margin: 0 auto;
+        background: #1f1f35;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: center;
+        justify-content: center;
+        min-height: 100%;
+        box-shadow: none;
+    }
+
+    body {
+        background: #26243b !important;
+    }
+
+    .sticky-pin .horizontal-main {
+        box-shadow: 0 2px 8px 0 rgba(40, 37, 89, 0.2);
+        background: #160d27;
+        max-width: 1170px;
+    }
+
+    .horizontalMenu>.horizontalMenu-list>li>a .fa {
+        margin-right: 0px !important;
+    }
+
+    .navbar {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    .vh {
+        height: 100vh;
+    }
+
+    .navbar.land-navbar {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    .app-sidebar {
+        left: auto !important;
+    }
+
+    .side-header {
+        left: auto !important;
+        right: auto !important;
+        z-index: 1044;
+        background: #30304d;
+    }
+
+    .second-sidemenu {
+        left: auto !important;
+        margin-left: 70px;
+    }
+}
+
+/*# sourceMappingURL=dark-boxed.css.map */

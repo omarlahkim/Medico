@@ -1,0 +1,111 @@
+.error-page {
+	position: relative;
+}
+/*---about us---*/
+
+.statistics-info .counter-icon {
+	i {
+		font-size: 1.2rem;
+	}
+	margin-bottom: 1rem;
+	display: inline-flex;
+	width: 4rem;
+	height: 4rem;
+	padding: 1.3rem 1.4rem;
+	border-radius: 50%;
+	text-align: center;
+}
+.service .item-box i {
+	font-size: 35px;
+}
+@media (max-width: 320px) {
+	.error-page .display-1 {
+		font-size: 6.5rem !important;
+		text-align: center;
+	}
+	.construction .btn.btn-icon {
+		width: 40px !important;
+		height: 40px !important;
+		border-radius: 50%;
+		text-align: center;
+		padding: 0;
+		background: transparent;
+		font-size: 16px;
+		color: $white;
+		margin: 0 2px !important;
+	}
+	.countdown-timer-wrapper .timer {
+		padding: 0 !important;
+	}
+	.display-2 {
+		text-align: center;
+		font-size: 3rem;
+	}
+}
+@media (max-width: 360px) {
+	.error-page .display-1 {
+		font-size: 6.5rem !important;
+		text-align: center;
+	}
+	.page-header {
+		display: block !important;
+	}
+	.breadcrumb {
+		flex-wrap: wrap;
+		margin-bottom: 0;
+		list-style: none;
+		border-radius: 3px;
+		position: relative;
+		right: 0;
+		top: 0px;
+		padding-right: 0;
+		color: $white;
+		left: 0px;
+		padding: 0;
+		margin-top: 5px;
+	}
+	#user-profile .tabs-menu2 ul li a {
+		padding: 10px 6px 11px 6px;
+	}
+	.header .nav-link {
+		padding: 0.6rem 0.5rem !important;
+		line-height: 1.9;
+	}
+}
+.container-login100 .box {
+	.social-icons {
+		position: relative;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			float: left;
+			padding: 7px 7px;
+			a {
+				margin: 0 10px;
+				font-size: 20px;
+				transition: 0.5s;
+				text-align: center;
+			}
+		}
+	}
+}
+.error-page .display-1 {
+	font-size: 10.5rem;
+	margin-top: 0px;
+}
+.relative {
+	position: relative !important;
+}
+.construction .btn.btn-icon {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	padding: 0;
+	background: transparent;
+	font-size: 20px;
+	color: $white;
+	margin: 0 3px;
+}

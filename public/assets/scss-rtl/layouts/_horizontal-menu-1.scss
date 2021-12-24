@@ -1,0 +1,67 @@
+@media only screen and (max-width: 1279px) and (min-width: 1025px) {
+	.horizontal-main2 .horizontalMenu>.horizontalMenu-list>li>a {
+		display: block;
+		padding: 1rem 0.7rem 1rem;
+		text-decoration: none;
+		position: relative;
+		margin: 0px;
+		color: #fcfeff;
+	}
+}
+@media (max-width: 1024px) and (min-width: 992px) {
+	.horizontal-main2 .horizontalMenu>.horizontalMenu-list>li>a {
+		padding: 1rem 0.8rem 1rem !important;
+		font-size: 14px;
+	}
+}
+.horizontal-main2 {
+	.horizontalMenu>.horizontalMenu-list>li>a.active {
+		color: $secondary;
+	}
+	&.horizontal-main {
+		width: 100%;
+		position: relative;
+		background: rgba(52, 1, 108, 0.8);
+		border-top: 0;
+	}
+}
+@media only screen and (max-width: 1279px) and (min-width: 1025px) {
+	.horizontal-main3 .horizontalMenu>.horizontalMenu-list>li>a {
+		display: block;
+		padding: 1rem 0.7rem 1rem;
+		text-decoration: none;
+		position: relative;
+		margin: 0px;
+		color: #fcfeff;
+	}
+}
+@media (max-width: 1024px) and (min-width: 992px) {
+	.horizontal-main3 .horizontalMenu>.horizontalMenu-list>li>a {
+		padding: 1rem 0.8rem 1rem !important;
+		font-size: 14px;
+	}
+}
+.hor-menu .desktop-logo {
+	margin-right: 0;
+}
+.horizontalMenu>.horizontalMenu-list>li>.horizontal-megamenu .link-list li a:hover {
+	color: $primary-1 !important;
+}
+.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a.active{
+    color: #5e2dd8;
+}
+.hor-menu .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a.active{
+    color: #5e2dd8;
+}
+.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a.active{
+    color: #5e2dd8;
+}
+.dark-mode .horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>a.active{
+    color: #8061ce;
+}
+.dark-mode .horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>ul.sub-menu>li>a.active{
+    color: #8061ce;
+}
+.dark-mode .hor-menu .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a.active{
+    color: #8061ce;
+}

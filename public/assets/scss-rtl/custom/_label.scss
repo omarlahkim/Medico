@@ -1,0 +1,78 @@
+label {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+ul.labels-info li {
+	h4 {
+		color: #5c5c5e;
+		font-size: 13px;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 5px;
+		text-transform: uppercase;
+	}
+	margin: 0;
+	a {
+		border-radius: 0;
+		color: #6a6a6a;
+		&:hover, &:focus {
+			background: none repeat scroll 0 0 #d5d7de;
+			color: #6a6a6a;
+		}
+		i {
+			padding-right: 10px;
+		}
+	}
+}
+.label {
+	display: inline-block;
+	margin-bottom: .5rem;
+	padding-right: .6em;
+	padding-left: .6em;
+}
+.label-size {
+	font-size: 3.8em;
+	margin-left: 9px;
+}
+.label-font-size {
+	font-size: 1.8em;
+}
+.label-medium-size {
+	font-size: 1.2em;
+}
+.labels li {
+	display: inline;
+}
+.label-title {
+	font-size: 1.125rem;
+}
+.label-font {
+	font-size: 0.8em;
+}
+.dot-label {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: 100%;
+	margin-left: 5px;
+}
+.label-default {
+	background: #d5e0ec;
+	color: $white;
+}
+.label-success {
+	background: $success;
+	color: $white;
+}
+.label-danger {
+	background: #f5334f;
+	color: $white;
+}
+.label-warning {
+	background: $warning;
+	color: $white;
+}
+.label-info {
+	background: $info;
+	color: $white;
+}
