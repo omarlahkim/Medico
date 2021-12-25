@@ -14,6 +14,6 @@ class Gender extends Model
 
     public function patient()
     {
-        $this->hasMany(User::class);
+        $this->hasMany(Patient::class);
     }
 }

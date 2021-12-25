@@ -26,12 +26,16 @@
                             <div class="wideget-user-info">
                                 <div class="wideget-user-warap">
                                     <div class="wideget-user-warap-l">
-                                        <h4 class="text-danger">1</h4>
+                                        <h4 class="text-danger">{{ count($patient->diagnoses) }}</h4>
                                         <p>Observations</p>
                                     </div>
                                     <div class="wideget-user-warap-r">
-                                        <h4 class="text-danger">2</h4>
+                                        <h4 class="text-danger">{{ count($patient->prescriptions) }}</h4>
                                         <p>Prescriptions</p>
+                                    </div>
+                                    <div class="wideget-user-warap-r">
+                                        <h4 class="text-danger">{{ count($patient->payments) }}</h4>
+                                        <p>Paiements</p>
                                     </div>
                                 </div>
 
@@ -73,46 +77,37 @@
                                                     {{ $patient->last_name }}</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Ville :</strong> {{ $patient->city }}</td>
+                                                <td><strong>Ville :</strong> {{ $patient->city->name }}</td>
                                             </tr>
                                             <tr>
                                                 <td><strong>Sexe :</strong>{{$patient->gender->name}}</td>
                                             </tr>
+                                            <tr>
+                                                <td><strong>CIN :</strong>{{$patient->CIN}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>profession :</strong>{{$patient->profession}}</td>
+                                            </tr>
                                         </tbody>
                                         <tbody class="col-lg-12 col-xl-6 p-0">
                                             <tr>
-                                                <td><strong>Website :</strong> abcdz.com</td>
+                                                <td><strong>Assurance :</strong> {{ $patient->insurance->name }}</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Email :</strong>
-                                                    georgemestayer@abcdz.com</td>
+                                                <td><strong>Adresse :</strong>
+                                                    {{ $patient->address }}</td>
                                             </tr>
                                             <tr>
                                                 <td><strong>Telephone :</strong> +212 {{ $patient->phone }} </td>
                                             </tr>
+                                            <tr>
+                                                <td><strong>Situation Familiale :</strong>
+                                                    {{ $patient->marital_situation->name }} </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="row profie-img">
-                                    <div class="col-md-12">
-                                        <div class="media-heading">
-                                            <h5><strong>Biography</strong></h5>
-                                        </div>
-                                        <p>
-                                            Nam libero tempore, cum soluta nobis est eligendi optio
-                                            cumque nihil impedit quo minus id quod maxime placeat
-                                            facere possimus, omnis voluptas assumenda est, omnis
-                                            dolor repellendus</p>
-                                        <p class="mb-0">because it is pleasure, but because those
-                                            who do not know how to pursue pleasure rationally
-                                            encounter but because those who do not know how to
-                                            pursue consequences that are extremely painful. Nor
-                                            again is there anyone who loves or pursues or desires to
-                                            obtain pain of itself, because it is pain, but because
-                                            occasionally circumstances occur in which toil and pain
-                                            can procure him some great pleasure.</p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane" id="tab-61">
@@ -122,7 +117,7 @@
                                         <div class="card-header bg-transparent border-0">
                                             <div class="row">
                                                 <h3 class="card-title">Observations</h3>
-                                                <a href="{{ route('diagnoses.create') }}"
+                                                <a href="{{ route('diagnoses.create',array('patient_id'=>$patient->id)) }}"
                                                     class="btn btn-cyan m-3">Ajouter une observation</a>
                                             </div>
                                         </div>
@@ -140,33 +135,25 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach([] as $patient)
+                                                                @foreach($patient->diagnoses as $diagnosis)
                                                                 <tr>
-                                                                    <td><a href="/patients/{{ $patient['id'] }}">{{ $patient['id'] }}
-                                                                        </a></td>
                                                                     <td class="text-sm font-weight-600">
-                                                                        {{ $patient['last_name'] }}</td>
+                                                                        {{ $diagnosis['date'] }}</td>
                                                                     <td class="text-sm font-weight-600">
-                                                                        {{ $patient['first_name'] }}</td>
-                                                                    <td>{{ $patient['CIN'] }}</td>
-                                                                    <td class="text-nowrap">{{ $patient['birth_date'] }}
-                                                                    </td>
+                                                                        {{ $diagnosis['description'] }}</td>
                                                                     <td>
                                                                         <div class="btn-list">
                                                                             <div class="row">
+
                                                                                 <div class="col-md-2 mb-2">
-                                                                                    <a href="#">
-                                                                                        <button type="button"
-                                                                                            class="btn btn-icon btn-warning"><i
-                                                                                                class="fe fe-edit"></i></button>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <div class="col-md-2 mb-2">
-                                                                                    <a href="#">
-                                                                                        <button type="button"
+                                                                                    <form id="delete-form" method="POST"
+                                                                                        action="{{route('diagnoses.destroy',$diagnosis['id'])}}">
+                                                                                        @method('DELETE')
+                                                                                        @csrf
+                                                                                        <button type="submit"
                                                                                             class="btn btn-icon btn-danger"><i
                                                                                                 class="fe fe-trash"></i></button>
-                                                                                    </a>
+                                                                                    </form>
                                                                                 </div>
 
                                                                             </div>
@@ -191,7 +178,7 @@
                                         <div class="card-header bg-transparent border-0">
                                             <div class="row">
                                                 <h3 class="card-title">Ordonnances</h3>
-                                                <a href="{{ route('prescriptions.create') }}"
+                                                <a href="{{ route('prescriptions.create',array('patient_id'=>$patient->id)) }}"
                                                     class="btn btn-cyan m-3">Ajouter une ordonnance</a>
                                             </div>
                                         </div>
@@ -209,16 +196,13 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach([] as $patient)
+                                                                @foreach($patient->prescriptions as $prescription)
                                                                 <tr>
-                                                                    <td><a href="/patients/{{ $patient['id'] }}">{{ $patient['id'] }}
-                                                                        </a></td>
-                                                                    <td class="text-sm font-weight-600">
-                                                                        {{ $patient['last_name'] }}</td>
-                                                                    <td class="text-sm font-weight-600">
-                                                                        {{ $patient['first_name'] }}</td>
-                                                                    <td>{{ $patient['CIN'] }}</td>
-                                                                    <td class="text-nowrap">{{ $patient['birth_date'] }}
+
+
+                                                                    <td>{{ $prescription['date'] }}</td>
+                                                                    <td class="text-nowrap">
+                                                                        {{ $prescription['date'] }}
                                                                     </td>
                                                                     <td>
                                                                         <div class="btn-list">
@@ -231,11 +215,14 @@
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="col-md-2 mb-2">
-                                                                                    <a href="#">
-                                                                                        <button type="button"
+                                                                                    <form id="delete-form" method="POST"
+                                                                                        action="{{route('prescriptions.destroy',$prescription['id'])}}">
+                                                                                        @method('DELETE')
+                                                                                        @csrf
+                                                                                        <button type="submit"
                                                                                             class="btn btn-icon btn-danger"><i
                                                                                                 class="fe fe-trash"></i></button>
-                                                                                    </a>
+                                                                                    </form>
                                                                                 </div>
 
                                                                             </div>
@@ -283,16 +270,13 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach([] as $patient)
+                                                                @foreach($patient->payments as $payment)
                                                                 <tr>
-                                                                    <td><a href="/patients/{{ $patient['id'] }}">{{ $patient['id'] }}
-                                                                        </a></td>
                                                                     <td class="text-sm font-weight-600">
-                                                                        {{ $patient['last_name'] }}</td>
+                                                                        {{ \Carbon\Carbon::parse($payment->created_at)->format('d-m-Y') }}
+                                                                    </td>
                                                                     <td class="text-sm font-weight-600">
-                                                                        {{ $patient['first_name'] }}</td>
-                                                                    <td>{{ $patient['CIN'] }}</td>
-                                                                    <td class="text-nowrap">{{ $patient['birth_date'] }}
+                                                                        {{ $payment['amount'] }}</td>
                                                                     </td>
                                                                     <td>
                                                                         <div class="btn-list">
@@ -305,11 +289,14 @@
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="col-md-2 mb-2">
-                                                                                    <a href="#">
-                                                                                        <button type="button"
+                                                                                    <form id="delete-form" method="POST"
+                                                                                        action="{{route('payments.destroy',$payment['id'])}}">
+                                                                                        @method('DELETE')
+                                                                                        @csrf
+                                                                                        <button type="submit"
                                                                                             class="btn btn-icon btn-danger"><i
                                                                                                 class="fe fe-trash"></i></button>
-                                                                                    </a>
+                                                                                    </form>
                                                                                 </div>
 
                                                                             </div>
@@ -335,4 +322,5 @@
     <!-- COL-END -->
 </div>
 <!-- ROW-1 CLOSED -->
+
 @endsection

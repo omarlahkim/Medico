@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Patient;
+use App\Models\Insurance;
 use App\Models\Gender;
+use App\Models\Diagnosis;
+use App\Models\MaritalSituation;
+use App\Models\Payment;
 use Barryvdh\Debugbar\Facades\Debugbar;
 
 class PatientController extends Controller
@@ -31,7 +35,10 @@ class PatientController extends Controller
     public function create()
     {
         $cities = City::all();
-        return view('secretary.addpatient')->with('cities', $cities);
+        $insurances = Insurance::all();
+        $genders = Gender::all();
+        $maritalsituations = MaritalSituation::all();
+        return view('secretary.addpatient')->with('cities', $cities)->with('insurances', $insurances)->with('genders', $genders)->with('maritalsituations', $maritalsituations);
     }
 
     /**
@@ -42,7 +49,20 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = new Patient;
+        $patient->first_name = $request->first_name;
+        $patient->last_name = $request->last_name;
+        $patient->CIN = $request->cin;
+        $patient->address = $request->address;
+        $patient->birth_date = $request->birth_date;
+        $patient->profession = $request->profession;
+        $patient->phone = $request->phone;
+        $patient->marital_situation_id = $request->marital_situation_id;
+        $patient->gender_id = $request->gender_id;
+        $patient->insurance_id = $request->insurance_id;
+        $patient->city_id = $request->city_id;
+        $patient->save();
+        return redirect()->route('patients.create')->with('status', 'Patient Has Been inserted');
     }
 
     /**
@@ -55,8 +75,6 @@ class PatientController extends Controller
     {
 
         $patient = Patient::find($id);
-        $gender = Gender::find(1);
-
         // Debugbar::info($patient->gender()->getResults()->name);
         return view('common.patient')->with('patient', $patient);
     }
@@ -93,5 +111,8 @@ class PatientController extends Controller
     public function destroy($id)
     {
         //
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
+        return redirect()->route('patients.index');
     }
 }

@@ -28,7 +28,8 @@
                                     <tr>
                                         <td>{{ $appointment['date'] }}</td>
                                         <td class="text-sm font-weight-600">{{ $appointment['time'] }}</td>
-                                        <td class="text-sm font-weight-600">{{ $appointment['patient_id'] }}</td>
+                                        <td class="text-sm font-weight-600">{{ $appointment->patient->first_name }}
+                                            {{ $appointment->patient->last_name }}</td>
                                         <td>
                                             <div class="btn-list">
                                                 <div class="row">

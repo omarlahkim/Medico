@@ -47,6 +47,15 @@
     <!-- COLOR SKIN CSS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/colors/color1.css') }}" />
 
+    <!-- TIME PICKER CSS -->
+    <link href="../../assets/plugins/time-picker/jquery.timepicker.css" rel="stylesheet" />
+
+    <!-- DATE PICKER CSS -->
+    <link href="../../assets/plugins/date-picker/spectrum.css" rel="stylesheet" />
+
+    <!-- SELECT2 CSS -->
+    <link href="../../assets/plugins/select2/select2.min.css" rel="stylesheet" />
+
 </head>
 
 <body class="app sidebar-mini">
@@ -105,6 +114,46 @@
 
     <!-- INDEX JS -->
     <script src="{{ asset('assets/js/index1.js') }}"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <!-- Color Change JS -->
+    <script src="{{ asset('assets/js/color-change.js') }}"></script>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- C3 CHART JS -->
+    <script src="{{ asset('assets/plugins/charts-c3/d3.v5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/charts-c3/c3-chart.js') }}"></script>
+
+    <!-- INPUT MASK JS-->
+    <script src="{{ asset('assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
+
+    <!-- SELECT2 JS -->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+
+    <!-- BOOTSTRAP-DATERANGEPICKER JS -->
+    <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- TIMEPICKER JS -->
+    <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script>
+
+    <!-- DATEPICKER JS -->
+    <script src="{{ asset('assets/plugins/date-picker/spectrum.js') }}"></script>
+    <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
+
+    <!-- MULTI SELECT JS-->
+    <script src="{{ asset('assets/plugins/multipleselect/multiple-select.js') }}"></script>
+    <script src="{{ asset('assets/plugins/multipleselect/multi-select.js') }}"></script>
+
+
+    <!-- FORMELEMENTS JS -->
+    <script src="{{ asset('assets/js/form-elements.js') }}"></script>
 
     <!-- CUSTOM JS -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>

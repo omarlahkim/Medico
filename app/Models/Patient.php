@@ -11,12 +11,32 @@ class Patient extends Model
     protected $primaryKey = 'id';
 
 
-
-
-
     public function gender()
     {
-
         return $this->belongsTo(Gender::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+    public function insurance()
+    {
+        return $this->belongsTo(Insurance::class);
+    }
+    public function marital_situation()
+    {
+        return $this->belongsTo(MaritalSituation::class);
+    }
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
+    }
+    public function diagnoses()
+    {
+        return $this->hasMany(Diagnosis::class);
+    }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 }

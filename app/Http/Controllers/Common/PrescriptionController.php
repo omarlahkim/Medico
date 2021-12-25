@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Common;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Patient;
+use App\Models\Drug;
 use Carbon\Carbon;
 
 class PrescriptionController extends Controller
@@ -23,11 +25,13 @@ class PrescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $todayDate = Carbon::today()->toDateString();
-        return view('doctor.addprescription')->with('todayDate', $todayDate);
+        $patient = Patient::where('id', '=', $request->patient_id)->get();
+        $drugs = Drug::all();
+        return view('doctor.addprescription')->with('todayDate', $todayDate)->with('patient', $patient)->with('drugs', $drugs);
     }
 
     /**

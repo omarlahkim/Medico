@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Barryvdh\Debugbar\Facades\Debugbar;
+use App\Models\Patient;
+use App\Models\Diagnosis;
 use Carbon\Carbon;
+
 
 class DiagnosisController extends Controller
 {
@@ -27,9 +30,9 @@ class DiagnosisController extends Controller
     public function create(Request $request)
     {
         //
-        Debugbar::info($request);
         $todayDate = Carbon::today()->toDateString();
-        return view('doctor.adddiagnosis')->with('todayDate', $todayDate);
+        $patient = Patient::where('id', '=', $request->patient_id)->get();
+        return view('doctor.adddiagnosis')->with('todayDate', $todayDate)->with('patient', $patient);
     }
 
     /**
@@ -41,6 +44,13 @@ class DiagnosisController extends Controller
     public function store(Request $request)
     {
         //
+        $diagnosis = new Diagnosis;
+        $diagnosis->date = $request->date;
+        $diagnosis->description = $request->diagnosis;
+        $diagnosis->patient_id = $request->patient_id;
+        $diagnosis->save();
+
+        return redirect()->route('diagnoses.create');
     }
 
     /**

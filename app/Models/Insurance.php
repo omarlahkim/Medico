@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Insurance extends Model
 {
     use HasFactory;
+
+
+
+
+    public function patient()
+    {
+        $this->hasMany(Patient::class);
+    }
 }

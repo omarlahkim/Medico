@@ -28,34 +28,36 @@
                                 <tbody>
                                     @foreach($payments as $payment)
                                     <tr>
-                                        <td>{{ $payment['id'] }}</td>
+                                        <td>{{ $payment['amount'] }}</td>
                                         <td class="text-sm font-weight-600">{{ $payment['amount'] }}</td>
                                         <td class="text-sm font-weight-600">{{ $payment['amount'] }}</td>
                                         <td>{{ $payment['amount'] }}</td>
-                                        <td class="text-nowrap">{{ $payment['amount'] }}</td>
+                                        <td class="text-nowrap">{{ $payment['created_at'] }}</td>
 
                                         <td>
                                             <div class="btn-list">
                                                 <div class="row">
-                                                    <div class="col-md-2 mb-2">
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-icon btn-danger"><i
-                                                                    class="fe fe-trash"></i></button>
-                                                        </a>
-                                                    </div>
+                                                    <form id="delete-form" method="POST"
+                                                        action="{{route('payments.destroy',$payment['id'])}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-icon btn-danger"><i
+                                                                class="fe fe-trash"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
+                        </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- ROW-2 CLOSED -->
 

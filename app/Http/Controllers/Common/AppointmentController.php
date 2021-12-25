@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\Patient;
 use Carbon\Carbon;
+use Barryvdh\Debugbar\Facades\Debugbar;
 
 class AppointmentController extends Controller
 {
@@ -17,8 +19,7 @@ class AppointmentController extends Controller
     public function index()
     {
         $appointments = Appointment::all();
-        $todaysappointments = $appointments->where('date', '=', Carbon::today()->toDateString());
-        return view('common.appointments')->with('appointments', $todaysappointments);
+        return view('common.appointments')->with('appointments', $appointments);
     }
 
     /**
@@ -29,7 +30,8 @@ class AppointmentController extends Controller
     public function create()
     {
         //
-        return view('secretary.addappointment');
+        $patients = Patient::all();
+        return view('secretary.addappointment')->with('patients', $patients);
     }
 
     /**
@@ -41,6 +43,13 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         //
+        $appointment = new Appointment();
+        $appointment->patient_id = $request->patient_id;
+        $appointment->date = $request->date;
+        $appointment->time = $request->time;
+        Debugbar::warning($request->time);
+        $appointment->save();
+        return redirect()->route('appointments.index');
     }
 
     /**

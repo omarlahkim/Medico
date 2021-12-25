@@ -27,6 +27,6 @@ class CreateMaritalSituationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marital__situations');
+        Schema::dropIfExists('marital_situations');
     }
 }

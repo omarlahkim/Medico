@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Common;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Patient;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -27,7 +29,9 @@ class PaymentController extends Controller
     public function create()
     {
         //
-        return view('secretary.addpayment');
+        $patients = Patient::all();
+
+        return view('secretary.addpayment')->with('patients', $patients);
     }
 
     /**
@@ -39,6 +43,11 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        $payment = new Payment;
+        $payment->patient_id = $request->patient_id;
+        $payment->amount = $request->amount;
+        $payment->save();
+        return redirect()->route('payments.index');
     }
 
     /**
@@ -84,5 +93,8 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+        $payment = Payment::findOrFail($id);
+        $payment->delete();
+        return redirect()->route('payments.index');
     }
 }
