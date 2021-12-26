@@ -15,4 +15,8 @@ class Prescription extends Model
     {
         $this->belongsTo(Patient::class);
     }
+    public function drugs()
+    {
+        $this->belongsToMany(Drug::class, 'precription_lines')->withPivot(['bf_breakfast', 'af_breakfast', 'bf_launch', 'af_launch', 'bf_dinner', 'af_dinner', 'quantity'])->withTimestamps();
+    }
 }

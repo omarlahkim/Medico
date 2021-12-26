@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class DrugSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +13,16 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        //
+        \App\Models\Drug::insert([
+            [
+                'name' => 'Doliprane 1000',
 
-        \App\Models\Role::insert([
-            [
-                'name' => 'doctor'
             ],
             [
-                'name' => 'secretary'
-            ],
+                'name' => 'Amoxile',
+
+            ]
         ]);
     }
 }

@@ -15,8 +15,8 @@ class MaritalSituationSeeder extends Seeder
     public function run()
     {
         DB::table('marital_situations')->insert([
-            'id' => 1,
-            'name' => 'Celibataire'
+
+            'name' => 'Marié(e)'
         ]);
     }
 }

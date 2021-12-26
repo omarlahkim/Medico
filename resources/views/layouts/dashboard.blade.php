@@ -15,7 +15,9 @@
     <div class="app-sidebar__user">
         <div class="dropdown user-pro-body text-center">
             <div class="user-info">
-                <h6 class=" mb-0 text-dark">Dr. {{ Auth::user()->email }}</h6>
+                <h6 class=" mb-0 text-dark">Dr.
+                    {{ App\Models\User::find(Auth::id())->doctor->first_name }}
+                    {{ App\Models\User::find(Auth::id())->doctor->last_name }}</h6>
                 <span class="text-muted app-sidebar__user-name text-sm">Doctor</span>
             </div>
         </div>
@@ -124,9 +126,7 @@
                             <span class="float-end"></span>
                             <i class="dropdown-icon mdi  mdi-message-outline"></i> Inbox
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message
-                        </a>
+
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?

@@ -38,7 +38,7 @@
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <label class="form-label">Medicament</label>
-                                <select readonly="readonly" class="form-control select2-show-search" name="patient_id">
+                                <select class="form-control select2-show-search" name="patient_id">
                                     @foreach($drugs as $drug)
                                     <option value="{{ $drug->id }}">{{ $drug->name }}
                                     </option>
@@ -84,12 +84,9 @@
                                         <input type="checkbox" name="value" value="Java" class="selectgroup-input">
                                         <span class="selectgroup-button">Apres Dinner</span>
                                     </label>
-
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="row">
                             <div class="col-md-12 ">
                                 <div class="mb-4 ml-0 mt-4">
@@ -116,30 +113,30 @@
                 <div class="prescription h-40">
                     <div class="row">
                         <div class="col-md-6 text-center ">
-                            <h3>Dr. M</h3>
-                            <h4>Neuro-Psychiatre | Psychotherapeute</h4>
-                            <h4>SPECIALISTE</h4>
-                            <h4>DES TROUBLES NERVEUX ET PSYCHOLOGIQUES</h4>
-                            <h4>LE PSYCHOTHERAPIES</h4>
-                            <h4>Diplomé de la Faculté de Medcine de Rabat</h4>
-                            <h4>Ex-Chef de service a l'hopital Moulay Ismail</h4>
-                            <h4>ADULTES-ENFANTS</h4>
+                            <h5>Dr. M</h5>
+                            <h5>Neuro-Psychiatre | Psychotherapeute</h5>
+                            <h5>SPECIALISTE</h5>
+                            <h5>DES TROUBLES NERVEUX ET PSYCHOLOGIQUES</h5>
+                            <h5>LE PSYCHOTHERAPIES</h5>
+                            <h5>Diplomé de la Faculté de Medcine de Rabat</h5>
+                            <h5>Ex-Chef de service a l'hopital Moulay Ismail</h5>
+                            <h5>ADULTES-ENFANTS</h5>
                         </div>
                         <div class="col-md-6 text-center ">
                             <h3>Dr. M</h3>
-                            <h4>Neuro-Psychiatre | Psychotherapeute</h4>
-                            <h4>SPECIALISTE</h4>
-                            <h4>DES TROUBLES NERVEUX ET PSYCHOLOGIQUES</h4>
-                            <h4>LE PSYCHOTHERAPIES</h4>
-                            <h4>Diplomé de la Faculté de Medcine de Rabat</h4>
-                            <h4>Ex-Chef de service a l'hopital Moulay Ismail</h4>
-                            <h4>ADULTES-ENFANTS</h4>
+                            <h5>Neuro-Psychiatre | Psychotherapeute</h5>
+                            <h5>SPECIALISTE</h5>
+                            <h5>DES TROUBLES NERVEUX ET PSYCHOLOGIQUES</h5>
+                            <h5>LE PSYCHOTHERAPIES</h5>
+                            <h5>Diplomé de la Faculté de Medcine de Rabat</h5>
+                            <h5>Ex-Chef de service a l'hopital Moulay Ismail</h5>
+                            <h5>ADULTES-ENFANTS</h5>
                         </div>
                         <div class="col-md-12 mt-5 d-flex justify-content-center ">
                             <h5>Meknes le {{ $todayDate }}</h5>
                         </div>
                         <div class="col-md-12 mt-5 d-flex justify-content-center ">
-                            <h4>Nom Prenom</h4>
+                            <h5>Nom Prenom</h5>
                         </div>
                         <div class="col-md-12 mt-5 d-flex justify-content-center text-center ">
                             <div class="table-responsive">

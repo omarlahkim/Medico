@@ -18,12 +18,19 @@ class UserSeeder extends Seeder
     {
         \App\Models\User::insert([
             [
-                'email' => 'drlahkim@gmail.com',
+                'email' => 'doctor@gmail.com',
                 'password' => Hash::make('password'), // password
                 'role_id' => 1,
                 'email_verified_at' => now(),
                 'remember_token' => Str::random(10)
-            ]
+            ],
+            [
+                'email' => 'secretary@gmail.com',
+                'password' => Hash::make('password'), // password
+                'role_id' => 2,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10)
+            ],
         ]);
     }
 }

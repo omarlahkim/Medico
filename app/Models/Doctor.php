@@ -12,6 +12,6 @@ class Doctor extends Model
 
     public function user()
     {
-        return $this->hasOne(Payment::class);
+        return $this->hasOne(User::class);
     }
 }

@@ -17,6 +17,9 @@ class GenderSeeder extends Seeder
             [
                 'name' => 'Male',
 
+            ], [
+                'name' => 'Female',
+
             ]
         ]);
     }

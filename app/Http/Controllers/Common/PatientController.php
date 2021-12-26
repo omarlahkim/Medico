@@ -62,7 +62,7 @@ class PatientController extends Controller
         $patient->insurance_id = $request->insurance_id;
         $patient->city_id = $request->city_id;
         $patient->save();
-        return redirect()->route('patients.create')->with('status', 'Patient Has Been inserted');
+        return redirect()->route('patients.index');
     }
 
     /**
@@ -75,7 +75,6 @@ class PatientController extends Controller
     {
 
         $patient = Patient::find($id);
-        // Debugbar::info($patient->gender()->getResults()->name);
         return view('common.patient')->with('patient', $patient);
     }
 
@@ -88,6 +87,13 @@ class PatientController extends Controller
     public function edit($id)
     {
         //
+        Debugbar::error($id);
+        $patient = Patient::find($id);
+        $cities = City::all();
+        $insurances = Insurance::all();
+        $genders = Gender::all();
+        $maritalsituations = MaritalSituation::all();
+        return view('secretary.editpatient')->with('patient', $patient)->with('cities', $cities)->with('insurances', $insurances)->with('genders', $genders)->with('maritalsituations', $maritalsituations);
     }
 
     /**
@@ -99,7 +105,23 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Debugbar::error($id);
+        $patient = Patient::where('id', $id)->firstOrFail();
+        $patient->id = $patient->id;
+        $patient->first_name = $request->first_name;
+        $patient->last_name = $request->last_name;
+        $patient->CIN = $request->cin;
+        $patient->address = $request->address;
+        $patient->birth_date = $request->birth_date;
+        $patient->profession = $request->profession;
+        $patient->phone = $request->phone;
+        $patient->marital_situation_id = $request->marital_situation_id;
+        $patient->gender_id = $request->gender_id;
+        $patient->insurance_id = $request->insurance_id;
+        $patient->city_id = $request->city_id;
+        $patient->save();
+
+        return route('patients.index');
     }
 
     /**

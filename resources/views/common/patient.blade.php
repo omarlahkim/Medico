@@ -280,26 +280,20 @@
                                                                     </td>
                                                                     <td>
                                                                         <div class="btn-list">
-                                                                            <div class="row">
-                                                                                <div class="col-md-2 mb-2">
-                                                                                    <a href="#">
-                                                                                        <button type="button"
-                                                                                            class="btn btn-icon btn-warning"><i
-                                                                                                class="fe fe-edit"></i></button>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <div class="col-md-2 mb-2">
-                                                                                    <form id="delete-form" method="POST"
-                                                                                        action="{{route('payments.destroy',$payment['id'])}}">
-                                                                                        @method('DELETE')
-                                                                                        @csrf
-                                                                                        <button type="submit"
-                                                                                            class="btn btn-icon btn-danger"><i
-                                                                                                class="fe fe-trash"></i></button>
-                                                                                    </form>
-                                                                                </div>
 
+
+                                                                            <div class="col-md-2 mb-2">
+                                                                                <form id="delete-form" method="POST"
+                                                                                    action="{{route('payments.destroy',$payment['id'])}}">
+                                                                                    @method('DELETE')
+                                                                                    @csrf
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-icon btn-danger"><i
+                                                                                            class="fe fe-trash"></i></button>
+                                                                                </form>
                                                                             </div>
+
+
                                                                         </div>
                                                                     </td>
                                                                 </tr>

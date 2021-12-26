@@ -40,7 +40,8 @@
                                             <div class="btn-list">
                                                 <div class="row">
                                                     <div class="col-md-2 mb-2">
-                                                        <a href="#">
+                                                        <a
+                                                            href="{{ route('patients.edit', array("patient"=>$patient)) }}">
                                                             <button type="button" class="btn btn-icon btn-warning"><i
                                                                     class="fe fe-edit"></i></button>
                                                         </a>

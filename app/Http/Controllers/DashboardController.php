@@ -6,7 +6,9 @@ use Carbon\Carbon;
 use App\Models\Patient;
 use App\Models\Appointment;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -23,7 +25,8 @@ class DashboardController extends Controller
         $todaysappointments = $appointments->where('date', '=', Carbon::today()->toDateString());
         $todayspatients = $appointments->where('date', '=', Carbon::today()->toDateString());
         $payments = Payment::all();
-        return view('common.dashboard')->with('patients', $patients)->with('appointments', $todaysappointments)->with('payments', $payments)->with('daypatients', $todayspatients);
+        $actual_user_fname = User::find(Auth::id())->doctor->first_name;
+        return view('common.dashboard')->with('patients', $patients)->with('appointments', $todaysappointments)->with('payments', $payments)->with('daypatients', $todayspatients)->with('actual_user_fname', $actual_user_fname);
     }
 
     /**

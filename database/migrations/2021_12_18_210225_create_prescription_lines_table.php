@@ -15,13 +15,13 @@ class CreatePrescriptionLinesTable extends Migration
     {
         Schema::create('prescription_lines', function (Blueprint $table) {
             $table->id();
-            $table->boolean('bf_breakfast');
-            $table->boolean('af_breakfast');
-            $table->boolean('bf_launch');
-            $table->boolean('af_launch');
-            $table->boolean('bf_dinner');
-            $table->boolean('af_dinner');
-            $table->float('quantity');
+            $table->boolean('bf_breakfast')->default(0);
+            $table->boolean('af_breakfast')->default(0);
+            $table->boolean('bf_launch')->default(0);
+            $table->boolean('af_launch')->default(0);
+            $table->boolean('bf_dinner')->default(0);
+            $table->boolean('af_dinner')->default(0);
+            $table->float('quantity')->default(0);
             $table->foreignId('drug_id')->constrained();
             $table->foreignId('prescription_id')->constrained();
             $table->timestamps();

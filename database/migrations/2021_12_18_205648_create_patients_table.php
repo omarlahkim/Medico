@@ -22,10 +22,10 @@ class CreatePatientsTable extends Migration
             $table->date('birth_date');
             $table->string('profession');
             $table->string('phone');
-            $table->foreignId('marital_situation_id')->constrained();
-            $table->foreignId('gender_id')->constrained();
-            $table->foreignId('insurance_id')->constrained();
-            $table->foreignId('city_id')->constrained();
+            $table->foreignId('marital_situation_id')->constrained()->onDelete('cascade');
+            $table->foreignId('gender_id')->constrained()->onDelete('cascade');
+            $table->foreignId('insurance_id')->constrained()->onDelete('cascade');
+            $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
